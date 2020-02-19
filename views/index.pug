@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class="col-md-4")
+    ol
+      each credential in credentials
+        li
+          strong
+            = credential.url
+          ul
+            li
+              = credential.key
+            li
+              = credential.value
