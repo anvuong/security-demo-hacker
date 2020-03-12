@@ -11,4 +11,8 @@ router.get('/', function(req, res) {
   });
 });
 
+router.get('/csrf', function(req, res) {
+  res.render('csrf');
+});
+
 module.exports = router;

