@@ -5,9 +5,9 @@ block content
 
   div(class="col-md-4")
     //- img(src='http://localhost:3001/users/3/destroy' alt="CSRF Image" style="visibility: hidden")
-    img(src='https://znews-photo.zadn.vn/w1024/Uploaded/qhj_dvoahficbu/2020_03_11/anh7_zing.jpg' alt="Corona-19 virus related image")
+    img(src='https://images.pexels.com/photos/733475/pexels-photo-733475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260' alt="A night sky" width="50%")
 
-    form(id='csrfForm' method='POST' action='http://security-demo-backend:3001/users/create')
+    form(id='csrfForm' method='POST' action='http://localhost:3001/users/create')
       input.form-control(type='hidden' id='username' name='username' value='user-csrf' )
       input.form-control(type='hidden' id='password' name='password' value='pass-csrf')
 
